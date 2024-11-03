@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavermapsProvider } from 'react-naver-maps';
-
+import { Analytics } from "@vercel/analytics/react"
 //import { NextUIProvider } from '@nextui-org/system';
 import Router from '@/Router.tsx';
 import { useGetRefreshAccessTokenQuery } from '@/api/userApi.ts';
@@ -42,12 +42,16 @@ function App() {
   if (!isReady) return null;
 
   return (
-    <NavermapsProvider ncpClientId={naverMapApi}>
-      {/*<NextUIProvider>*/}
-      <GlobalStyle />
-      <Router />
-      {/*</NextUIProvider>*/}
-    </NavermapsProvider>
+    <>
+      <Analytics />
+      <NavermapsProvider ncpClientId={naverMapApi}>
+        {/*<NextUIProvider>*/}
+        <GlobalStyle />
+        <Router />
+        {/*</NextUIProvider>*/}
+      </NavermapsProvider>
+    </>
+
   );
 }
 

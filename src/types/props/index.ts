@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { Client } from '@stomp/stompjs';
 import {
   RegisterData,
   SetActiveMarker,
@@ -112,10 +113,10 @@ export interface SetPlaceProps {
 }
 
 export interface MessageListProps {
+  client: Client | null;
   userId: string;
   currentPartyId: string;
   inAppNotificationHandler: (message: ChatMessage) => void;
   initialChatMessage: GroupMessage[];
-  checkReceive: (partyId: string, chatId: string) => void;
   children: ReactNode;
 }

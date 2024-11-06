@@ -8,15 +8,15 @@ import {
 import EllipsisVerticalIcon from '@/assets/icons/common/ellipsis-vertical-icon.svg?react';
 
 const DropDown = ({
-  items,
+  // items,
   danger,
   leaveChatHandler,
 }: {
-  items: string[];
+  // items: string[];
   danger: string;
   leaveChatHandler: () => void;
 }) => {
-  console.log(items);
+  // console.log(items);
 
   return (
     <Dropdown radius='sm' className={'min-w-[70px]'}>

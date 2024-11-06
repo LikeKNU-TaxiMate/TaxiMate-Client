@@ -10,11 +10,7 @@ import { RootState } from '@/store';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export const uuid = uuidv4().replace('-', '');
 
-export const useStompClient = (): {
-  client: Client | null;
-  sendMessage: (partyId: string, message: string) => void;
-  checkReceive: (partyId: string, chatId: string) => void;
-} => {
+export const useStompClient = (): Client | null => {
   const clientRef = useRef<Client | null>(null);
   const isLogin = useSelector((state: RootState) => state.userSlice.isLogin);
   const accessToken = getAccessToken();
@@ -58,33 +54,7 @@ export const useStompClient = (): {
     };
   }, [isLogin]);
 
-  const sendMessage = (partyId: string, message: string) => {
-    if (clientRef.current) {
-      clientRef.current.publish({
-        destination: '/app/messages',
-        headers: { Authorization: `Bearer ${accessToken}` },
-        body: JSON.stringify({
-          partyId,
-          message,
-        }),
-      });
-    }
-  };
-
-  const checkReceive = (partyId: string, chatId: string) => {
-    if (clientRef.current) {
-      clientRef.current.publish({
-        destination: '/app/received',
-        headers: { Authorization: `Bearer ${accessToken}` },
-        body: JSON.stringify({
-          partyId,
-          chatId,
-        }),
-      });
-    }
-  };
-
-  return { client: clientRef.current, sendMessage, checkReceive };
+  return clientRef.current;
 };
 
 export default useStompClient;

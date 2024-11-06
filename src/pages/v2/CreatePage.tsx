@@ -1,4 +1,12 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useErrorHandle from '@/hooks/useErrorHandle.ts';
+
 import Header from '@/components/common/Layout/Header';
+import TitleWrap from '@/components/v2/CreatePost/TitleWrap.tsx';
+import MemberWrap from '@/components/v2/CreatePost/MemberWrap.tsx';
+import { useCreatePostV2Mutation } from '@/api/v2/postApi.ts';
+import { Container } from '@/components/v2/CreatePost/CreatePost.style.ts';
 import {
   BackButton,
   HeaderItem,
@@ -6,13 +14,6 @@ import {
 import { CreateSubmitButton } from '@/components/CreatePost/createPost.style.ts';
 
 import ArrowLeftIcon from '@/assets/icons/common/arrow-left-icon.svg?react';
-import { useNavigate } from 'react-router-dom';
-import { Container } from '@/components/v2/CreatePost/CreatePost.style.ts';
-import { useState } from 'react';
-import TitleWrap from '@/components/v2/CreatePost/TitleWrap.tsx';
-import MemberWrap from '@/components/v2/CreatePost/MemberWrap.tsx';
-import { useCreatePostV2Mutation } from '@/api/v2/postApi.ts';
-import useErrorHandle from '@/hooks/useErrorHandle.ts';
 
 const CreatePage = () => {
   const navigate = useNavigate();

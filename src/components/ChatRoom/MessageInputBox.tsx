@@ -1,4 +1,6 @@
 import { useRef, useState } from 'react';
+import { Client } from '@stomp/stompjs';
+import sendMessage from '@/utils/sendMessage.ts';
 
 import {
   MessageInput,
@@ -8,10 +10,10 @@ import {
 import ArrowUpIcon from '@/assets/icons/chat/arrow-up-icon.svg?react';
 
 const MessageInputBox = ({
-                           sendMessage,
-                           partyId,
-                         }: {
-  sendMessage: (partyId: string, message: string) => void;
+  client,
+  partyId,
+}: {
+  client: Client | null;
   partyId: string;
 }) => {
   const [input, setInput] = useState('');
@@ -19,8 +21,7 @@ const MessageInputBox = ({
   const hiddenInput = useRef<HTMLInputElement>(null);
   const sendMessageFunc = () => {
     if (input.trim()) {
-      sendMessage(partyId, input);
-
+      sendMessage(client, partyId, input);
       setInput('');
       hiddenInput.current?.focus();
       inputRef.current?.focus();

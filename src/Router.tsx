@@ -30,7 +30,7 @@ const AppRouter = () => {
       navigate(CLIENT_PATH.ONBOARDING);
       localStorage.setItem('onboarding', 'true');
     }
-  }, [navigate]);
+  }, []);
 
   return (
     <Suspense fallback={<LoadingIcon />}>
@@ -73,12 +73,7 @@ const AppRouter = () => {
           <Route element={<AuthChecker />}>
             <Route
               path={CLIENT_PATH.CHAT_ROOM}
-              element={
-                <ChatRoomPage
-                  sendMessage={client.sendMessage}
-                  checkReceive={client.checkReceive}
-                />
-              }
+              element={<ChatRoomPage client={client} />}
             />
           </Route>
         </Route>

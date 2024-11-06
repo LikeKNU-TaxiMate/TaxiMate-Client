@@ -29,14 +29,9 @@ import ArrowLeftIcon from '@/assets/icons/common/arrow-left-icon.svg?react';
 import ArrowRightIcon from '@/assets/icons/common/arrow-right-icon.svg?react';
 import LoadingIcon from '@/components/common/LoadingIcon';
 import NoData from '@/components/common/NoData.tsx';
+import { Client } from '@stomp/stompjs';
 
-const ChatRoomPage = ({
-  sendMessage,
-  checkReceive,
-}: {
-  sendMessage: (partyId: string, message: string) => void;
-  checkReceive: (partyId: string, chatId: string) => void;
-}) => {
+const ChatRoomPage = ({ client }: { client: Client | null }) => {
   const navigate = useNavigate();
   const currentPartyId = useLocation().pathname.split('/')[2];
 
@@ -139,11 +134,11 @@ const ChatRoomPage = ({
         />
       </NotificationContainer>
       <MessageList
+        client={client}
         userId={userData.id}
         currentPartyId={currentPartyId}
         inAppNotificationHandler={handleNewMessage}
         initialChatMessage={initialChatMessage}
-        checkReceive={checkReceive}
       >
         {initialChatMessage.map((message) =>
           message.type === 'SYSTEM' ? (
@@ -167,7 +162,7 @@ const ChatRoomPage = ({
           )
         )}
       </MessageList>
-      <MessageInputBox sendMessage={sendMessage} partyId={currentPartyId} />
+      <MessageInputBox client={client} partyId={currentPartyId} />
     </>
   );
 };

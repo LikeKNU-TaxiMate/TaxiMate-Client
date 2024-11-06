@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import reactNativePostMessage from '@/utils/reactNavtivePostMessage.ts';
+import reactNativePostMessage from '@/utils/reactNativePostMessage.ts';
 
 import Header from '@/components/common/Layout/Header';
 import { HeaderItem } from '@/components/common/Layout/Header/Header.style.ts';

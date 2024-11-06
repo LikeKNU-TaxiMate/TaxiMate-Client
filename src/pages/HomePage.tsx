@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLazyGetPostsQuery } from '@/api/postApi.ts';
 
 import getCurrentLocation from '@/utils/getCurrentlocation.ts';
-import reactNativePostMessage from '@/utils/reactNavtivePostMessage.ts';
+import reactNativePostMessage from '@/utils/reactNativePostMessage.ts';
 
 import Header from '@/components/common/Layout/Header';
 import { HeaderItem } from '@/components/common/Layout/Header/Header.style.ts';

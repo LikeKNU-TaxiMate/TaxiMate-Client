@@ -18,7 +18,7 @@ const ChatListPage = () => {
   if (isLoading) return <LoadingIcon />;
   if (!data) return <div>no data...</div>;
 
-  const progressChatRoom = data.filter((chat) => chat.isProgress);
+  //const progressChatRoom = data.filter((chat) => chat.isProgress);
 
   return (
     <>
@@ -30,9 +30,9 @@ const ChatListPage = () => {
       </Header>
       {data.length > 0 ? (
         <Container>
-          {progressChatRoom.length > 0 && (
-            <ChatListWrap chatRoomListProp={progressChatRoom} />
-          )}
+          {/*{progressChatRoom.length > 0 && (*/}
+          <ChatListWrap chatRoomListProp={data} />
+          {/*)}*/}
         </Container>
       ) : (
         <NoData>채팅 내역이 없습니다</NoData>

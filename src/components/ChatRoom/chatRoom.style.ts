@@ -107,8 +107,10 @@ export const MessageTime = styled.span`
 `;
 
 export const OthersProfile = styled.img`
-  width: 40px;
-  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 40px;
+  max-height: 40px;
   border-radius: 50%;
 
   margin-right: 10px;

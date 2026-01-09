@@ -15,18 +15,18 @@ import InAppNotificationLayout from '@/components/common/InAppNotification/InApp
 import ForwardHandler from '@/ForwardHandler.tsx';
 import { StompContext } from '@/store/StompContext.ts';
 
-const HomePage = lazy(() => import('@/domains/Home/Page'));
-const ChatListPage = lazy(() => import('@/domains/ChatRoomList/Page'));
-const ChatRoomPage = lazy(() => import('@/domains/ChatRoom/Page'));
-const LoginPage = lazy(() => import('@/domains/Login/Page'));
+const HomePage = lazy(() => import('@/pages/Home'));
+const ChatListPage = lazy(() => import('@/pages/ChatRoomList'));
+const ChatRoomPage = lazy(() => import('@/pages/ChatRoom'));
+const LoginPage = lazy(() => import('@/pages/Login'));
 const LoginLoadingPage = lazy(
-  () => import('@/domains/Login/Page/LoginLoadingPage.tsx')
+  () => import('@/pages/Login/LoginLoadingPage.tsx')
 );
-const SearchPage = lazy(() => import('@/domains/Search/Page'));
-const CreatePostPage = lazy(() => import('@/domains/CreatePost/Page'));
-const MyProfilePage = lazy(() => import('@/domains/MyProfile/Page'));
-const PostDetailPage = lazy(() => import('@/domains/PostDetail/Page'));
-const UsageHistoryPage = lazy(() => import('@/domains/UsageHistory/Page'));
+const SearchPage = lazy(() => import('@/pages/Search'));
+const CreatePostPage = lazy(() => import('@/pages/CreatePost'));
+const MyProfilePage = lazy(() => import('@/pages/MyProfile'));
+const PostDetailPage = lazy(() => import('@/pages/PostDetail'));
+const UsageHistoryPage = lazy(() => import('@/pages/UsageHistory'));
 
 const defaultProps = new DefaultProps({
   Delay: {

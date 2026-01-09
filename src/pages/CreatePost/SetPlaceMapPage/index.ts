@@ -1,0 +1,1 @@
+export { SetPlaceMapPage } from './SetPlaceMapPage';

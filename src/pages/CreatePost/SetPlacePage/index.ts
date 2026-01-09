@@ -1,0 +1,1 @@
+export { SetPlacePage } from './SetPlacePage';

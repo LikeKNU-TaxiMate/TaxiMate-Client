@@ -15,8 +15,8 @@ interface HomeMapProps {
   setMap: React.Dispatch<React.SetStateAction<naver.maps.Map | null>>;
   setIsActiveMyLocationButton: React.Dispatch<React.SetStateAction<boolean>>;
   setShowResearchButton: React.Dispatch<React.SetStateAction<boolean>>;
-  isActivePostItem: string | null;
-  setIsActivePostItem: SetActiveMarker;
+  isActivePartyItem: string | null;
+  setIsActivePartyItem: SetActiveMarker;
   data: Party[];
   userLocation: Location | null;
   isFirstLoading: boolean;
@@ -26,8 +26,8 @@ const Map = ({
   map,
   setMap,
   setIsActiveMyLocationButton,
-  isActivePostItem,
-  setIsActivePostItem,
+  isActivePartyItem,
+  setIsActivePartyItem,
   setShowResearchButton,
   data,
   userLocation,
@@ -68,7 +68,7 @@ const Map = ({
     <MapDiv
       className={'map-wrapper'}
       onClick={() => {
-        setIsActivePostItem(null);
+        setIsActivePartyItem(null);
       }}
       onMouseUp={onCenterChangedFunc}
       onTouchEnd={onCenterChangedFunc}
@@ -90,8 +90,8 @@ const Map = ({
             title={item.destination}
             anchor={[item.destination.length * 6 + 22, 53]}
             showPlace
-            activeMarker={isActivePostItem}
-            setActiveMarker={setIsActivePostItem}
+            activeMarker={isActivePartyItem}
+            setActiveMarker={setIsActivePartyItem}
           />
         ))}
       </NaverMap>

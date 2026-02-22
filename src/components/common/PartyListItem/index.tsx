@@ -4,10 +4,10 @@ import formatPathWithParams from '@/utils/formatPathWithParams.ts';
 
 import {
   AddressWrapper,
-  PostBodyContainer,
-  PostHeaderContainer,
-  PostListItemContainer,
-} from '@/components/common/PostListItem/PostListItem.style.ts';
+  PartyBodyContainer,
+  PartyHeaderContainer,
+  PartyListItemContainer,
+} from '@/components/common/PartyListItem/PartyListItem.style.ts';
 import PeopleCountTag, {
   PeopleCountTagProps,
 } from '@/components/common/PeopleCountTag';
@@ -17,21 +17,21 @@ import ArrowRightIcon from '@/assets/icons/common/arrow-right-icon.svg?react';
 import LocationIcon from '@/assets/icons/postList/location-dot-icon.svg?react';
 import CaretRightIcon from '@/assets/icons/postList/caret-right-icon.svg?react';
 
-interface PostHeaderProps {
+interface PartyHeaderProps {
   title: string;
-  activePostList?: boolean;
+  activePartyList?: boolean;
 }
 
-interface PostBodyProps {
+interface PartyBodyProps {
   departureTime: string;
   origin: string;
   destination: string;
 }
 
-interface PostListItemProps extends PostHeaderProps, PostBodyProps {
+interface PartyListItemProps extends PartyHeaderProps, PartyBodyProps {
   id: string;
 }
-const PostListItem = ({
+const PartyListItem = ({
   id,
   title,
   currentParticipants,
@@ -39,40 +39,40 @@ const PostListItem = ({
   departureTime,
   origin,
   destination,
-  activePostList,
+  activePartyList,
   isClose,
-}: PostListItemProps & PeopleCountTagProps) => {
+}: PartyListItemProps & PeopleCountTagProps) => {
   return (
-    <PostListItemContainer>
+    <PartyListItemContainer>
       <Link to={formatPathWithParams(CLIENT_PATH.POST_DETAIL, id)}>
-        <PostHeader
+        <PartyHeader
           title={title}
           currentParticipants={currentParticipants}
           maxParticipants={maxParticipants}
-          activePostList={activePostList}
+          activePartyList={activePartyList}
           isClose={isClose}
         />
-        <PostBody
+        <PartyBody
           departureTime={departureTime}
           origin={origin}
           destination={destination}
         />
       </Link>
-    </PostListItemContainer>
+    </PartyListItemContainer>
   );
 };
 
-export default PostListItem;
+export default PartyListItem;
 
-const PostHeader = ({
+const PartyHeader = ({
   title,
   currentParticipants,
   maxParticipants,
-  activePostList,
+  activePartyList,
   isClose,
-}: PostHeaderProps & PeopleCountTagProps) => {
+}: PartyHeaderProps & PeopleCountTagProps) => {
   return (
-    <PostHeaderContainer>
+    <PartyHeaderContainer>
       <div>
         <h2>{title}</h2>
         <PeopleCountTag
@@ -81,18 +81,18 @@ const PostHeader = ({
           isClose={isClose}
         />
       </div>
-      {activePostList && <ArrowRightIcon />}
-    </PostHeaderContainer>
+      {activePartyList && <ArrowRightIcon />}
+    </PartyHeaderContainer>
   );
 };
 
-export const PostBody = ({
+export const PartyBody = ({
   departureTime,
   origin,
   destination,
-}: PostBodyProps) => {
+}: PartyBodyProps) => {
   return (
-    <PostBodyContainer>
+    <PartyBodyContainer>
       <div>
         <ClockIcon />
         {departureTime}
@@ -103,6 +103,6 @@ export const PostBody = ({
         <CaretRightIcon />
         <AddressWrapper>{destination}</AddressWrapper>
       </div>
-    </PostBodyContainer>
+    </PartyBodyContainer>
   );
 };

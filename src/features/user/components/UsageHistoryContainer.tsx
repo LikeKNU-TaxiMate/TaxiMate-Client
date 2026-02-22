@@ -2,9 +2,9 @@ import {
   Button,
   ButtonContainer,
   Container,
-  PostListContainer,
+  PartyListContainer,
 } from '../UsageHistoryPage.style.ts';
-import PostListItem from '@/components/common/PostListItem';
+import PartyListItem from '@/components/common/PartyListItem';
 import formatDate from '@/utils/date/formatDate';
 import NoData from '@/components/common/NoData.tsx';
 import { useState } from 'react';
@@ -43,21 +43,21 @@ const UsageHistoryContainer = () => {
         </Button>
       </ButtonContainer>
       {data && data.length > 0 ? (
-        <PostListContainer>
-          {data.map((post) => (
-            <PostListItem
-              key={post.id}
-              id={post.id}
-              title={post.title}
-              currentParticipants={post.currentParticipants}
-              maxParticipants={post.maxParticipants}
-              departureTime={formatDate(post.departureTime)}
-              origin={post.origin}
-              destination={post.destination}
+        <PartyListContainer>
+          {data.map((party) => (
+            <PartyListItem
+              key={party.id}
+              id={party.id}
+              title={party.title}
+              currentParticipants={party.currentParticipants}
+              maxParticipants={party.maxParticipants}
+              departureTime={formatDate(party.departureTime)}
+              origin={party.origin}
+              destination={party.destination}
               isClose={isActive === 'close'}
             />
           ))}
-        </PostListContainer>
+        </PartyListContainer>
       ) : (
         <NoData>
           {isActive === 'join'

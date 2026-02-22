@@ -6,23 +6,23 @@ import NonActiveMoveLocationIcon from '@/assets/icons/map/non-active-move-locati
 interface MoveCurrentLocationButtonProps {
   moveCurrentLocationFunc: () => void;
   isActiveMyLocationButton: boolean;
-  isActivePostItem: string | null;
-  postListHeight: number;
+  isActivePartyItem: string | null;
+  partyListHeight: number;
 }
 
 const windowHeight = window.innerHeight;
 const MoveCurrentLocationButton = ({
   moveCurrentLocationFunc,
   isActiveMyLocationButton,
-  isActivePostItem,
-  postListHeight,
+  isActivePartyItem,
+  partyListHeight,
 }: MoveCurrentLocationButtonProps) => {
   return (
     <Button
       onClick={moveCurrentLocationFunc}
-      $bottom={postListHeight}
-      $isMax={postListHeight >= Math.floor(windowHeight * 0.9)}
-      $activeMarker={isActivePostItem}
+      $bottom={partyListHeight}
+      $isMax={partyListHeight >= Math.floor(windowHeight * 0.9)}
+      $activeMarker={isActivePartyItem}
     >
       {isActiveMyLocationButton ? (
         <ActiveMoveLocationIcon />

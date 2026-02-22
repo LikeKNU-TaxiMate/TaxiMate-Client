@@ -12,7 +12,7 @@ import Footer from '@/components/common/Layout/Footer';
 import LoadingIcon from '@/components/common/LoadingIcon';
 
 import Map from './components/Map';
-import PostList from './components/PostList';
+import PartyList from './components/PartyList';
 import { Main } from './components/Map/Map.style.ts';
 import SearchBar from './components/SearchBar';
 import ResearchButton from './components/ResearchButton';
@@ -33,8 +33,8 @@ export const HomePage = () => {
   const [map, setMap] = useState<naver.maps.Map | null>(null);
   const [isActiveMyLocationButton, setIsActiveMyLocationButton] =
     useState<boolean>(true);
-  const [isActivePostItem, setIsActivePostItem] = useState<string | null>(null);
-  const [postListHeight, setPostListHeight] = useState(0);
+  const [isActivePartyItem, setIsActivePartyItem] = useState<string | null>(null);
+  const [partyListHeight, setPartyListHeight] = useState(0);
   const [showResearchButton, setShowResearchButton] = useState(false);
   const [trigger, { data, isLoading: getPartysIsLoading }] =
     useLazyGetPartysQuery();
@@ -113,25 +113,25 @@ export const HomePage = () => {
         <MoveCurrentLocationButton
           moveCurrentLocationFunc={moveCurrentLocationFunc}
           isActiveMyLocationButton={isActiveMyLocationButton}
-          isActivePostItem={isActivePostItem}
-          postListHeight={postListHeight}
+          isActivePartyItem={isActivePartyItem}
+          partyListHeight={partyListHeight}
         />
         <Map
           map={map}
           setMap={setMap}
           setIsActiveMyLocationButton={setIsActiveMyLocationButton}
-          isActivePostItem={isActivePostItem}
-          setIsActivePostItem={setIsActivePostItem}
+          isActivePartyItem={isActivePartyItem}
+          setIsActivePartyItem={setIsActivePartyItem}
           setShowResearchButton={setShowResearchButton}
           userLocation={userLocation || null}
           data={data || []}
           isFirstLoading={isFirstLoading}
         />
       </Main>
-      <PostList
-        isActivePostItem={isActivePostItem}
+      <PartyList
+        isActivePartyItem={isActivePartyItem}
         data={data || []}
-        setPostListHeight={setPostListHeight}
+        setPartyListHeight={setPartyListHeight}
       />
       <Footer />
     </>

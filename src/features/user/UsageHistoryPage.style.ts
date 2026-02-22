@@ -32,7 +32,7 @@ export const Button = styled.button<{ $isJoined: boolean }>`
     `}
 `;
 
-export const PostListContainer = styled.ul`
+export const PartyListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   overflow: auto;

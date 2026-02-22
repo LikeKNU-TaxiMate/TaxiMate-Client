@@ -11,7 +11,7 @@ import useInAppNotificationHandler from '@/hooks/useInAppNotificationHandler';
 import NoData from '@/components/common/NoData.tsx';
 import LoadingIcon from '@/components/common/LoadingIcon';
 import Header from '@/components/common/Layout/Header';
-import { PostBody } from '@/components/common/PostListItem';
+import { PartyBody } from '@/components/common/PartyListItem';
 import PeopleCountTag from '@/components/common/PeopleCountTag';
 import InAppNotification from '@/components/common/InAppNotification';
 import { BackButton } from '@/components/common/Layout/Header/Header.style.ts';
@@ -88,7 +88,7 @@ export const ChatRoomPage = () => {
           />
           <ArrowRightIcon />
         </NotificationHeader>
-        <PostBody
+        <PartyBody
           departureTime={formatDate(chatData.party.departureTime) || ''}
           origin={chatData.party.origin || ''}
           destination={chatData.party.destination || ''}

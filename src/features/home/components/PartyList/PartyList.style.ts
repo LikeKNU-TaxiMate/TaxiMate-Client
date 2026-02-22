@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-export const PostListContainer = styled.ul`
+export const PartyListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 0 20px var(--footer-height);
@@ -18,7 +18,7 @@ const fadeIn = keyframes`
   }
 `;
 
-export const ActivePostListContainer = styled.ul`
+export const ActivePartyListContainer = styled.ul`
   margin: 0 auto;
   max-width: 380px;
   width: 90%;

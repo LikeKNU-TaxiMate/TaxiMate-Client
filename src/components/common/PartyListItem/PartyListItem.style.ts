@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PostListItemContainer = styled.li`
+export const PartyListItemContainer = styled.li`
   padding: 16px 0;
 
   display: flex;
@@ -14,7 +14,7 @@ export const PostListItemContainer = styled.li`
   }
 `;
 
-export const PostHeaderContainer = styled.div`
+export const PartyHeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
@@ -40,7 +40,7 @@ export const PostHeaderContainer = styled.div`
   }
 `;
 
-export const PostBodyContainer = styled.div`
+export const PartyBodyContainer = styled.div`
   display: flex;
   flex-direction: column;
 

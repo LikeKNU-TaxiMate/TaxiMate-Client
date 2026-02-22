@@ -5,30 +5,30 @@ import { BottomSheet, BottomSheetRef } from 'react-spring-bottom-sheet';
 import formatDate from '@/utils/date/formatDate';
 
 import {
-  PostListContainer,
-  ActivePostListContainer,
-} from './PostList.style.ts';
-import PostListItem from '@/components/common/PostListItem';
+  PartyListContainer,
+  ActivePartyListContainer,
+} from './PartyList.style.ts';
+import PartyListItem from '@/components/common/PartyListItem';
 import { Party } from '@/types/party.ts';
 import NoData from '@/components/common/NoData.tsx';
 
-const PostList = ({
-  isActivePostItem,
+const PartyList = ({
+  isActivePartyItem,
   data,
-  setPostListHeight,
+  setPartyListHeight,
 }: {
-  isActivePostItem: string | null;
+  isActivePartyItem: string | null;
   data: Party[];
-  setPostListHeight: React.Dispatch<React.SetStateAction<number>>;
+  setPartyListHeight: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const sheetRef = useRef<BottomSheetRef | null>(null);
 
-  if (isActivePostItem) {
-    const targetData = data.filter((item) => item.id === isActivePostItem)[0];
+  if (isActivePartyItem) {
+    const targetData = data.filter((item) => item.id === isActivePartyItem)[0];
 
     return (
-      <ActivePostListContainer>
-        <PostListItem
+      <ActivePartyListContainer>
+        <PartyListItem
           id={targetData.id}
           title={targetData.title}
           currentParticipants={targetData.currentParticipants}
@@ -36,9 +36,9 @@ const PostList = ({
           departureTime={formatDate(targetData.departureTime)}
           origin={targetData.origin}
           destination={targetData.destination}
-          activePostList
+          activePartyList
         />
-      </ActivePostListContainer>
+      </ActivePartyListContainer>
     );
   }
 
@@ -53,23 +53,23 @@ const PostList = ({
         Math.floor(maxHeight * 0.2),
       ]}
       expandOnContentDrag
-      onSpringEnd={() => setPostListHeight(sheetRef.current?.height || 0)}
+      onSpringEnd={() => setPartyListHeight(sheetRef.current?.height || 0)}
     >
       {data.length > 0 ? (
-        <PostListContainer>
-          {data.map((post) => (
-            <PostListItem
-              key={post.id}
-              id={post.id}
-              title={post.title}
-              currentParticipants={post.currentParticipants}
-              maxParticipants={post.maxParticipants}
-              departureTime={formatDate(post.departureTime)}
-              origin={post.origin}
-              destination={post.destination}
+        <PartyListContainer>
+          {data.map((party) => (
+            <PartyListItem
+              key={party.id}
+              id={party.id}
+              title={party.title}
+              currentParticipants={party.currentParticipants}
+              maxParticipants={party.maxParticipants}
+              departureTime={formatDate(party.departureTime)}
+              origin={party.origin}
+              destination={party.destination}
             />
           ))}
-        </PostListContainer>
+        </PartyListContainer>
       ) : (
         <NoData>주위 검색된 팟이 없습니다</NoData>
       )}
@@ -77,4 +77,4 @@ const PostList = ({
   );
 };
 
-export default PostList;
+export default PartyList;

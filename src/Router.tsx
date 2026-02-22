@@ -23,9 +23,9 @@ const LoginLoadingPage = lazy(
   () => import('@/features/auth/LoginLoadingPage.tsx')
 );
 const SearchPage = lazy(() => import('@/features/home/SearchPage.tsx'));
-const CreatePostPage = lazy(() => import('@/features/post/CreatePostPage.tsx'));
+const CreatePostPage = lazy(() => import('@/features/party/CreatePostPage.tsx'));
 const MyProfilePage = lazy(() => import('@/features/user/MyProfilePage.tsx'));
-const PostDetailPage = lazy(() => import('@/features/post/PostDetailPage.tsx'));
+const PostDetailPage = lazy(() => import('@/features/party/PostDetailPage.tsx'));
 const UsageHistoryPage = lazy(() => import('@/features/user/UsageHistoryPage.tsx'));
 
 const defaultProps = new DefaultProps({

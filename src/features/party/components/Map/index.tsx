@@ -6,7 +6,7 @@ import NoData from '@/components/common/NoData.tsx';
 import {
   OpenOtherAppBox,
   OpenOtherMapAppBtn,
-} from '@/features/post/styles/postDetailStyles.ts';
+} from '@/features/party/styles/postDetailStyles.ts';
 
 interface Props {
   taxiRoute: { latitude: number; longitude: number }[];

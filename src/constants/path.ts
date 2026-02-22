@@ -4,7 +4,7 @@ export const API_PATH = {
   SEARCH: {
     GET: 'https://dapi.kakao.com/v2/local/search/keyword.json',
   },
-  POST: {
+  PARTY: {
     GET: {
       ALL: `/api/v1/parties`,
       // 포스트 ID 조회

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavermaps } from 'react-naver-maps';
 
-import { useLazyGetPostsQuery } from '@/api/postApi.ts';
+import { useLazyGetPartysQuery } from '@/api/partyApi.ts';
 import { defaultLocation } from '@/utils/location/getCurrentlocation.ts';
 import { Location } from '@/types';
 
@@ -36,10 +36,10 @@ export const HomePage = () => {
   const [isActivePostItem, setIsActivePostItem] = useState<string | null>(null);
   const [postListHeight, setPostListHeight] = useState(0);
   const [showResearchButton, setShowResearchButton] = useState(false);
-  const [trigger, { data, isLoading: getPostsIsLoading }] =
-    useLazyGetPostsQuery();
+  const [trigger, { data, isLoading: getPartysIsLoading }] =
+    useLazyGetPartysQuery();
 
-  const getPostsQueryTrigger = () => {
+  const getPartysQueryTrigger = () => {
     if (map) {
       const bounds = map.getBounds();
 
@@ -73,7 +73,7 @@ export const HomePage = () => {
       return;
     }
     updateMapCenter(map, userLocation);
-    getPostsQueryTrigger();
+    getPartysQueryTrigger();
     setIsActiveMyLocationButton(isActiveMyLocationButton);
   };
 
@@ -90,7 +90,7 @@ export const HomePage = () => {
         isFirstLoading = false;
       })();
     }
-    getPostsQueryTrigger();
+    getPartysQueryTrigger();
   }, [map]);
 
   return (
@@ -107,9 +107,9 @@ export const HomePage = () => {
       <Main>
         <SearchBar path={'/search'} />
         {showResearchButton && (
-          <ResearchButton onClick={getPostsQueryTrigger} />
+          <ResearchButton onClick={getPartysQueryTrigger} />
         )}
-        {(getPostsIsLoading || isFirstLoading) && <LoadingIcon />}
+        {(getPartysIsLoading || isFirstLoading) && <LoadingIcon />}
         <MoveCurrentLocationButton
           moveCurrentLocationFunc={moveCurrentLocationFunc}
           isActiveMyLocationButton={isActiveMyLocationButton}

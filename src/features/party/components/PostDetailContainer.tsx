@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { Place } from '../types/postDetail.types.ts';
-import { PostDetail } from '@/types/post.ts';
-import { useGetPostByIdQuery } from '@/api/postApi.ts';
+import { PartyDetail } from '@/types/party.ts';
+import { useGetPartyByIdQuery } from '@/api/partyApi.ts';
 import {
   formatNaverMapUrl,
   getWebNaverMapUrl,
@@ -33,9 +33,9 @@ import SuspenseContainer from '@/components/common/SuspenseContainer.tsx';
 
 const PostDetailContainer = () => {
   const id = useLocation().pathname.split('/')[2];
-  const { data, isLoading, refetch } = useGetPostByIdQuery(id);
+  const { data, isLoading, refetch } = useGetPartyByIdQuery(id);
 
-  const refetchFunc = async (): Promise<PostDetail | undefined> => {
+  const refetchFunc = async (): Promise<PartyDetail | undefined> => {
     const result = await refetch();
     return result.data;
   };

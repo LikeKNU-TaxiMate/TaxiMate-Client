@@ -1,4 +1,4 @@
-export interface Post {
+export interface Party {
   id: string;
   title: string;
   departureTime: string;
@@ -9,7 +9,7 @@ export interface Post {
   originLocation: { latitude: number; longitude: number };
 }
 
-export type PostDetailStatus =
+export type PartyDetailStatus =
   | 'NONE'
   | 'PARTICIPATING'
   | 'TERMINATED'
@@ -23,12 +23,12 @@ export interface Participant {
   role: 'HOST' | 'PARTICIPANT';
 }
 
-export interface PostDetail extends Post {
+export interface PartyDetail extends Party {
   explanation: string;
   originAddress: string;
   destinationAddress: string;
   destinationLocation: { latitude: number; longitude: number };
-  status: PostDetailStatus;
+  status: PartyDetailStatus;
   createdAt: string;
   views: string;
   participants: Participant[];
@@ -39,7 +39,7 @@ export interface PostDetail extends Post {
   };
 }
 
-export interface CreatePostRes {
+export interface CreatePartyRes {
   success: boolean;
   message: string;
   data: {

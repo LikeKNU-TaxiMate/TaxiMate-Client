@@ -3,7 +3,7 @@ import { RootState } from '@/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container as MapDiv, NaverMap } from 'react-naver-maps';
 import { SetActiveMarker, Location } from '@/types';
-import { Post } from '@/types/post.ts';
+import { Party } from '@/types/party.ts';
 
 import { setCenterLocation } from './HomeMapSlice.ts';
 import getCurrentLocation from '@/utils/location/getCurrentlocation.ts';
@@ -17,7 +17,7 @@ interface HomeMapProps {
   setShowResearchButton: React.Dispatch<React.SetStateAction<boolean>>;
   isActivePostItem: string | null;
   setIsActivePostItem: SetActiveMarker;
-  data: Post[];
+  data: Party[];
   userLocation: Location | null;
   isFirstLoading: boolean;
 }

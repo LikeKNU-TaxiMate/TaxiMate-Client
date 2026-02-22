@@ -8,17 +8,17 @@ import PostListItem from '@/components/common/PostListItem';
 import formatDate from '@/utils/date/formatDate';
 import NoData from '@/components/common/NoData.tsx';
 import { useState } from 'react';
-import { useGetClosePostsQuery, useGetJoinPostsQuery } from '@/api/postApi.ts';
+import { useGetClosePartysQuery, useGetJoinPartysQuery } from '@/api/partyApi.ts';
 import SuspenseContainer from '@/components/common/SuspenseContainer.tsx';
 
 const UsageHistoryContainer = () => {
   const [isActive, setIsActive] = useState('join');
 
-  const getJoinPostsResult = useGetJoinPostsQuery('joinPosts');
-  const getClosePostsResult = useGetClosePostsQuery('closePosts');
+  const getJoinPartysResult = useGetJoinPartysQuery('joinPartys');
+  const getClosePartysResult = useGetClosePartysQuery('closePartys');
 
   const { data, isLoading } =
-    isActive === 'join' ? getJoinPostsResult : getClosePostsResult;
+    isActive === 'join' ? getJoinPartysResult : getClosePartysResult;
 
   if (isLoading) return <SuspenseContainer />;
 

@@ -1,4 +1,4 @@
-import { useCreatePostMutation } from '@/api/postApi.ts';
+import { useCreatePartyMutation } from '@/api/partyApi.ts';
 
 import Header from '@/components/common/Layout/Header';
 import LoadingIcon from '@/components/common/LoadingIcon';
@@ -32,16 +32,16 @@ export const CreateMainPage = ({
   setStep,
 }: CreateMainPageProps) => {
   const { goTo, goHome } = useCustomNavigation();
-  const [createPost, { isLoading }] = useCreatePostMutation();
+  const [createParty, { isLoading }] = useCreatePartyMutation();
 
-  const createPostSubmit = async () => {
+  const createPartySubmit = async () => {
     if (!validateRegisterData(registerData) || isLoading) return;
     const formatDate = new Date(
       new Date(registerData.departureTime).getTime() + 1000 * 60 * 60 * 9
     ).toISOString();
 
     try {
-      const result = await createPost({
+      const result = await createParty({
         ...registerData,
         departureTime: formatDate,
       }).unwrap();
@@ -53,7 +53,7 @@ export const CreateMainPage = ({
         },
       });
     } catch (err) {
-      logger.error('Post creation failed:', err);
+      logger.error('Party creation failed:', err);
       alert('게시글 생성 중 문제가 발생했습니다.');
     }
   };
@@ -65,7 +65,7 @@ export const CreateMainPage = ({
           <ArrowLeftIcon />
         </BackButton>
         <HeaderItem>팟 생성</HeaderItem>
-        <CreateSubmitButton onClick={createPostSubmit}>
+        <CreateSubmitButton onClick={createPartySubmit}>
           만들기
         </CreateSubmitButton>
       </Header>

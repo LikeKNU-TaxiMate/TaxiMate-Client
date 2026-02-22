@@ -1,4 +1,4 @@
-import { Post } from '@/types/post.ts';
+import { Party } from '@/types/party.ts';
 
 interface Sender {
   id: string;
@@ -40,7 +40,7 @@ export interface ApiChat {
 }
 
 export interface DetailChatRoom {
-  party: Post;
+  party: Party;
   chats: ApiChat[];
 }
 

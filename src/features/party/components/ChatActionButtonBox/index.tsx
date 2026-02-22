@@ -1,7 +1,7 @@
 import { RootState } from '@/store';
 import { useSelector } from 'react-redux';
 import useCustomNavigation from '@/hooks/useNavigate';
-import { PostDetail, PostDetailStatus } from '@/types/post.ts';
+import { PartyDetail, PartyDetailStatus } from '@/types/party.ts';
 import {
   useLeaveChatMutation,
   useParticipationChatMutation,
@@ -18,9 +18,9 @@ const ChatActionButtonBox = ({
   id,
   refetchFunc,
 }: {
-  status: PostDetailStatus;
+  status: PartyDetailStatus;
   id: string;
-  refetchFunc: () => Promise<PostDetail | undefined>;
+  refetchFunc: () => Promise<PartyDetail | undefined>;
 }) => {
   const { goHome, goTo } = useCustomNavigation();
 
@@ -66,7 +66,7 @@ const ChatActionButtonBox = ({
   );
 };
 
-const checkStatus = (status: PostDetailStatus) => {
+const checkStatus = (status: PartyDetailStatus) => {
   return status === 'PARTICIPATING' || status === 'TERMINATED';
 };
 

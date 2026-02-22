@@ -1,6 +1,6 @@
 import UserContainer from '@/components/common/UserContainer';
 import { ParticipantsBoxContainer } from './ParticipantsBox.style.ts';
-import { Participant } from '@/types/post.ts';
+import { Participant } from '@/types/party.ts';
 
 const ParticipantsBox = ({ participants }: { participants: Participant[] }) => {
   return (

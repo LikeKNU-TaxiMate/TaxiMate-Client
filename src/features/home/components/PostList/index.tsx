@@ -9,7 +9,7 @@ import {
   ActivePostListContainer,
 } from './PostList.style.ts';
 import PostListItem from '@/components/common/PostListItem';
-import { Post } from '@/types/post.ts';
+import { Party } from '@/types/party.ts';
 import NoData from '@/components/common/NoData.tsx';
 
 const PostList = ({
@@ -18,7 +18,7 @@ const PostList = ({
   setPostListHeight,
 }: {
   isActivePostItem: string | null;
-  data: Post[];
+  data: Party[];
   setPostListHeight: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const sheetRef = useRef<BottomSheetRef | null>(null);

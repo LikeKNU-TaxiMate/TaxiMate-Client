@@ -1,4 +1,4 @@
-import { PostDetailStatus } from '@/types/post.ts';
+import { PartyDetailStatus } from '@/types/party.ts';
 import PeopleCountTag from '@/components/common/PeopleCountTag';
 import {
   PostDetailHeaderContainer,
@@ -15,7 +15,7 @@ const PostDetailHeader = ({
 }: {
   currentParticipants: number;
   maxParticipants: number;
-  status: PostDetailStatus;
+  status: PartyDetailStatus;
   createdAt: string;
   views: string;
 }) => {

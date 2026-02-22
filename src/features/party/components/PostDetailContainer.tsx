@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { Place } from '../types/postDetail.types.ts';
+import { Place } from '../types/partyMap.types.ts';
 import { PartyDetail } from '@/types/party.ts';
 import { useGetPartyByIdQuery } from '@/api/partyApi.ts';
 import {
@@ -14,7 +14,7 @@ import {
   NAVER_MAP_ANDROID_URL,
   KAKAO_TAXI_IOS_URL,
   KAKAO_TAXI_ANDROID_URL,
-} from '../constants/postDetail.constants.ts';
+} from '../constants/partyMap.constants.ts';
 
 import {
   Container,

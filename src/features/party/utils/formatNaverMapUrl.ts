@@ -1,4 +1,4 @@
-import { Place } from '../types/postDetail.types.ts';
+import { Place } from '../types/partyMap.types.ts';
 
 export const formatNaverMapUrl = ({
   origin,

@@ -1,4 +1,4 @@
-import type { UserAgentPlatform } from '../types/postDetail.types.ts';
+import type { UserAgentPlatform } from '../types/partyMap.types.ts';
 
 const getUserAgentPlatform = (): UserAgentPlatform => {
   const ua = navigator.userAgent;
